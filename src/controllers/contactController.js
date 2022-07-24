@@ -1,15 +1,15 @@
 import { request, response } from "express";
 import contact from "../models/contactModel.js";
-import contactValidationSchema from "../middlewares/contactValidation.js";
+// import contactValidationSchema from "../middlewares/contactValidation.js";
 
 
 const sendMessage = async(request, response) =>{
 
     // inputvalidation
-    const {error} = contactValidationSchema.validate(request.body);
+    // const {error} = contactValidationSchema.validate(request.body);
 
-    if (error)
-        return response.status(400).send(error.details[0].message)
+    // if (error)
+    //     return response.status(400).send(error.details[0].message)
 
 
     try{
@@ -43,7 +43,7 @@ const getAllMessages = async(request, response) =>{
         const clientMessages = await contact.find();
 
         response.status(200).json({
-            "messages from clients": clientMessages
+            "messages": clientMessages
         })
     }
 

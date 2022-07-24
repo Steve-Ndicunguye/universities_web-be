@@ -1,13 +1,13 @@
 import User from '../models/userModels.js'; 
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
-import authValidationSchema from '../middlewares/loginValidation.js';
+// import authValidationSchema from '../middlewares/loginValidation.js';
 
 //test
 const loginUser = async (req, res) => {
 
-    const {error} = authValidationSchema.validate(req.body);
-    if(error) return res.status(400).send({error: error.details[0].message })
+    // const {error} = authValidationSchema.validate(req.body);
+    // if(error) return res.status(400).send({error: error.details[0].message })
       
     
     //check if a email is in the database

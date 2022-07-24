@@ -3,9 +3,14 @@ import bodyParser from "body-parser";
 import express from "express";
 const app = express();
 import mongoose from "mongoose";
-
+import cors from 'cors';
 import swaggerUI from 'swagger-ui-express';
 import swaggerJsDoc from 'swagger-jsdoc';
+
+const corsOptions = {
+  origin: '*',
+  optionsSuccessStatus: 200 
+}
 
 const options = {
     definition: {
@@ -64,9 +69,9 @@ import registerRoute from './routes/registerRoutes.js'
 import contactRoute from './routes/contactRoute.js'
 import loginRoute from './routes/loginRoute.js'
 
-app.use('/register', registerRoute);
-app.use('/contact', contactRoute);
-app.use('/login', loginRoute);
+app.use('/register', cors(corsOptions), registerRoute);
+app.use('/contact', cors(corsOptions), contactRoute);
+app.use('/login', cors(corsOptions), loginRoute);
 
 
 

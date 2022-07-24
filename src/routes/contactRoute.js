@@ -67,7 +67,7 @@ const router = express.Router();
 */
 
 
-router.post("/sendMessage", protectRoute.authUser , contactController.sendMessage);
+router.post("/sendMessage" , contactController.sendMessage);
 
 
 /**
